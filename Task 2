@@ -1,0 +1,52 @@
+#calculates the GPA (Grade Point Average) based on a list of grades.
+   
+def calculate_gpa(grades):
+
+    total_subjects = len(grades)
+    total_points = sum(grades)
+    gpa = total_points / total_subjects
+    return gpa
+
+def calculate_letter_grade(average_grade):
+
+    #determines the letter grade based on the average numeric grade.
+    
+    if average_grade >= 10:
+        return 'A+'
+    elif average_grade >= 9:
+        return 'A'
+    elif average_grade >= 8:
+        return 'B+'
+    elif average_grade >= 7:
+        return 'B'
+    elif average_grade >= 6:
+        return 'C+'
+    elif average_grade >= 5:
+        return 'C'
+    else:
+        return 'F'
+
+def main():
+    
+   #main function to interact with the user and generate a grade report.
+   
+    print("Welcome to the Student Grade Tracker!")
+    student_name = input("Enter student's name: ")
+    num_subjects = int(input("Enter the number of subjects: "))
+    
+    grades = []
+    for i in range(1, num_subjects + 1):
+        grade = float(input(f"Enter grade for subject {i}: "))
+        grades.append(grade)
+    
+    average_grade = sum(grades) / num_subjects
+    gpa = calculate_gpa(grades)
+    letter_grade = calculate_letter_grade(average_grade)
+    
+    print("\nGrade Report:")
+    print(f"Average Grade: {average_grade:.2f}")
+    print(f"Overall GPA: {gpa:.2f}")
+    print(f"Letter Grade: {letter_grade}")
+
+if __name__ == "__main__":
+    main()
